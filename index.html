@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinas Perhubungan Kabupaten Jayapura - Portal Resmi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0b1d33',
+                            900: '#0A2540',
+                            950: '#051323',
+                        },
+                        gold: {
+                            400: '#ffd54f',
+                            500: '#FFC72C',
+                            600: '#e6ab00',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Style Helper -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-pattern {
+            background-color: #0A2540;
+            background-image: radial-gradient(rgba(255, 199, 44, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen selection:bg-gold-500 selection:text-navy-900">
+
+    <!-- TOP BAR -->
+    <div class="bg-navy-950 text-gray-300 text-xs py-2 px-4 border-b border-navy-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-gold-500"></i> Kompleks Pemkab Gunung Merah, Sentani</span>
+                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-clock text-gold-500"></i> Senin - Jumat: 08:00 - 15:00 WIT</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-gray-400">Hubungi Kami:</span>
+                <a href="tel:0967123456" class="hover:text-gold-500 transition"><i class="fa-solid fa-phone"></i> (0967) 123456</a>
+                <span class="text-navy-800">|</span>
+                <a href="mailto:info@dishub.jayapurakab.go.id" class="hover:text-gold-500 transition"><i class="fa-solid fa-envelope"></i> info@dishub.jayapurakab.go.id</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 bg-navy-900 shadow-xl border-b border-gold-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- BRAND / LOGO -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gold-500 rounded-xl flex items-center justify-center text-navy-900 shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-ship text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-bold tracking-tight text-white group-hover:text-gold-500 transition">DISHUB KAB. JAYAPURA</span>
+                        <span class="block text-xs text-gold-500 font-medium tracking-wider">DINAS PERHUBUNGAN KABUPATEN JAYAPURA</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP MENU -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-medium text-white hover:text-gold-500 hover:bg-navy-800 transition">Beranda</a>
+                    <a href="#profil" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-500 hover:bg-navy-800 transition">Profil & SOTK</a>
+                    <a href="#layanan" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-500 hover:bg-navy-800 transition">Layanan Publik</a>
+                    <a href="#berita" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-500 hover:bg-navy-800 transition">Berita</a>
+                    <a href="#galeri" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-500 hover:bg-navy-800 transition">Galeri</a>
+                    <a href="#kontak" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-500 hover:bg-navy-800 transition">Kontak</a>
+                </nav>
+
+                <!-- QUICK ACCESS BUTTON -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <a href="#layanan" class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold px-4 py-2.5 rounded-lg text-sm shadow-md hover:brightness-110 active:scale-95 transition">
+                        <i class="fa-solid fa-file-signature"></i> KIR Online
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE NAV DROPDOWN -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-navy-950 border-t border-navy-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-navy-800 hover:text-gold-500">Beranda</a>
+            <a href="#profil" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-navy-800 hover:text-gold-500">Profil & SOTK</a>
+            <a href="#layanan" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-navy-800 hover:text-gold-500">Layanan Publik</a>
+            <a href="#berita" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-navy-800 hover:text-gold-500">Berita & Pengumuman</a>
+            <a href="#galeri" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-navy-800 hover:text-gold-500">Galeri Kegiatan</a>
+            <a href="#kontak" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-navy-800 hover:text-gold-500">Kontak</a>
+            <a href="#layanan" class="mobile-link w-full text-center mt-2 inline-block bg-gold-500 text-navy-950 font-bold px-4 py-2.5 rounded-lg text-sm">
+                <i class="fa-solid fa-file-signature"></i> Layanan Uji KIR Online
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative bg-pattern text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/80 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-medium">
+                        <i class="fa-solid fa-shield-halved"></i> Dinas Perhubungan Kabupaten Jayapura
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+                        Mewujudkan Pelayanan Transportasi yang <span class="text-gold-500 underline decoration-gold-500/40 underline-offset-8">Aman, Selamat, & Terintegrasi</span>
+                    </h1>
+                    
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                        Komitmen kami dalam memberikan pelayanan perhubungan darat, danau, dan udara terbaik demi kelancaran mobilitas serta mendukung pemerataan ekonomi masyarakat di Bumi Kenambai Umbai.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#layanan" class="bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold px-6 py-3.5 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-grid-2"></i> Jelajahi Layanan Publik
+                        </a>
+                        <button onclick="openModal('pengaduan')" class="bg-navy-800 hover:bg-navy-700 text-white font-semibold px-6 py-3.5 rounded-xl border border-gray-700 transition flex items-center gap-2">
+                            <i class="fa-solid fa-bullhorn text-gold-500"></i> Layanan Pengaduan
+                        </button>
+                    </div>
+
+                    <!-- Quick Highlights -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-navy-800 text-left">
+                        <div>
+                            <span class="block text-xl sm:text-2xl font-bold text-gold-500">100%</span>
+                            <span class="text-xs text-gray-400">Digital KIR Online</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl sm:text-2xl font-bold text-gold-500">24/7</span>
+                            <span class="text-xs text-gray-400">Pengawasan Lalin</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl sm:text-2xl font-bold text-gold-500">24+</span>
+                            <span class="text-xs text-gray-400">Dermaga Danau Sentani</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Illustration Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md bg-navy-800/80 border border-gold-500/30 rounded-2xl p-6 shadow-2xl backdrop-blur-md">
+                        <div class="relative h-64 rounded-xl overflow-hidden mb-5 bg-navy-950 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Transportasi Jayapura" class="object-cover w-full h-full opacity-75">
+                            <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-gold-500 text-navy-950 text-xs font-bold px-2.5 py-1 rounded">
+                                Pelabuhan & Danau Sentani
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Layanan Utama Transportasi</h3>
+                        <p class="text-xs text-gray-300 mb-4">Integrasi sistem keselamatan jalan raya dan jalur penyeberangan Danau Sentani secara berkala.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs text-gray-300">
+                                <span>Status Layanan Uji Berkala:</span>
+                                <span class="text-green-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Beroperasi Normal</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-300">
+                                <span>Posko Pengawasan Sentani:</span>
+                                <span class="text-green-400 font-bold flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Aktif</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SAMBUTAN & VISI MISI -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Kepala Dinas Photo & Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-gold-500 to-navy-900 rounded-2xl blur-lg opacity-30"></div>
+                        <div class="relative bg-navy-900 text-white rounded-2xl p-6 shadow-xl border border-gray-100">
+                            <div class="aspect-square rounded-xl overflow-hidden mb-5 bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Kepala Dinas Perhubungan Kab. Jayapura" class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-bold text-gold-500">Kepala Dinas Perhubungan</h3>
+                                <p class="text-sm font-semibold text-gray-200">Kabupaten Jayapura</p>
+                                <p class="text-xs text-gray-400 mt-2">"Mengabdi untuk Keselamatan dan Kelancaran Perhubungan Masyarakat Jayapura."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sambutan & Visi Misi Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-gold-600 font-bold text-sm tracking-wider uppercase">Sambutan & Profil</span>
+                        <h2 class="text-3xl font-bold text-navy-900 mt-1">Dinas Perhubungan Kabupaten Jayapura</h2>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        Selamat datang di portal informasi resmi Dinas Perhubungan Kabupaten Jayapura. Kami hadir untuk memberikan keterbukaan informasi publik dan kemudahan akses layanan sektor perhubungan, baik angkutan darat, keselamatan penyeberangan Danau Sentani, hingga pengelolaan fasilitasi perhubungan udara di wilayah Kabupaten Jayapura.
+                    </p>
+
+                    <!-- Visi Misi Tabbed Box -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-4">
+                        <div>
+                            <h4 class="text-base font-bold text-navy-900 flex items-center gap-2">
+                                <i class="fa-solid fa-eye text-gold-500"></i> VISI
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-1 italic">
+                                "Terwujudnya Pelayanan Perhubungan yang Aman, Selamat, Tertib, Teratur, dan Terintegrasi Menuju Kabupaten Jayapura yang Sejahtera."
+                            </p>
+                        </div>
+                        <hr class="border-gray-200">
+                        <div>
+                            <h4 class="text-base font-bold text-navy-900 flex items-center gap-2">
+                                <i class="fa-solid fa-bullseye text-gold-500"></i> MISI UTAMA
+                            </h4>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-2 list-disc list-inside">
+                                <li>Meningkatkan keselamatan dan ketertiban lalu lintas jalan dan perairan danau.</li>
+                                <li>Meningkatkan kualitas pelayanan sarana & prasarana pengujian kendaraan (KIR).</li>
+                                <li>Membangun infrastruktur moda transportasi regional yang inklusif dan ramah lingkungan.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LAYANAN UNGGULAN (CARDS GRID) -->
+    <section id="layanan" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-bold text-sm tracking-wider uppercase">Portal Pelayanan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Layanan Unggulan Masyarakat</h2>
+                <p class="text-gray-600 mt-3 text-sm sm:text-base">Akses mudah dan cepat berbagai layanan administrasi perhubungan di Kabupaten Jayapura.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: KIR Online -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-truck-ramp-box text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Pengujian Kendaraan (KIR)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Pendaftaran dan penjadwalan Uji Berkala Kendaraan Bermotor secara online. Transparan, efisien, dan tanpa pungli.
+                        </p>
+                    </div>
+                    <button onclick="openModal('kir')" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-gold-600 transition pt-4 border-t border-gray-100">
+                        Daftar Uji KIR <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2: Izin Trayek -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bus text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Izin Trayek & Angkutan</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Pelayanan penerbitan dan perpanjangan izin operasional trayek angkutan umum jalan serta angkutan pedesaan.
+                        </p>
+                    </div>
+                    <button onclick="openModal('trayek')" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-gold-600 transition pt-4 border-t border-gray-100">
+                        Persyaratan Trayek <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Card 3: Pengawasan Lalin -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-traffic-light text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Pengendalian Lalu Lintas</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Pengawasan ketertiban jalan raya, pengoperasian APILL (Lampu Lalu Lintas), serta penataan fasilitasi parkir.
+                        </p>
+                    </div>
+                    <a href="#kontak" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-gold-600 transition pt-4 border-t border-gray-100">
+                        Laporkan Gangguan Lalin <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4: Perhubungan Danau & Laut -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-anchor text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Transportasi Danau Sentani</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Pengawasan keselamatan kelayakan kapal/speed boat tradisional, fasilitasi dermaga lokal, dan perizinan perairan Danau Sentani.
+                        </p>
+                    </div>
+                    <button onclick="alert('Informasi Keselamatan Danau Sentani: Pastikan selalu menggunakan Ring Buoy / Pelampung Keselamatan.')" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-gold-600 transition pt-4 border-t border-gray-100">
+                        Info Keselamatan Danau <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Card 5: Rekomendasi Perhubungan Udara -->
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-navy-900 rounded-xl flex items-center justify-center text-gold-500 mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-plane-departure text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Fasilitasi Perhubungan Udara</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Koordinasi penataan kawasan sekitar Bandar Udara Internasional Sentani dan fasilitasi lapangan terbang distrik pedalaman.
+                        </p>
+                    </div>
+                    <button onclick="openModal('udara')" class="inline-flex items-center gap-2 text-sm font-bold text-navy-900 hover:text-gold-600 transition pt-4 border-t border-gray-100">
+                        Detail Fasilitas Udara <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Card 6: Pengaduan Masyarakat -->
+                <div class="bg-gradient-to-br from-navy-900 to-navy-950 text-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-navy-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-gold-500 rounded-xl flex items-center justify-center text-navy-950 mb-6">
+                            <i class="fa-solid fa-headset text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gold-500 mb-2">Lapor & Pengaduan</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Sampaikan keluhan, saran, atau aduan mengenai penerangan jalan (PJU), marka jalan, dan pelanggaran lalu lintas.
+                        </p>
+                    </div>
+                    <button onclick="openModal('pengaduan')" class="w-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold py-2.5 rounded-xl transition text-sm">
+                        Buat Laporan Pengaduan
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIK / COUNTER ANIMATION SECTION -->
+    <section class="py-16 bg-navy-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-gold-500 mb-2" data-counter="4500">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Kendaraan Teruji KIR</div>
+                </div>
+
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-gold-500 mb-2" data-counter="28">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Dermaga Danau Terdaftar</div>
+                </div>
+
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-gold-500 mb-2" data-counter="1250">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Titik PJU Terpasang</div>
+                </div>
+
+                <div class="p-4">
+                    <div class="text-4xl sm:text-5xl font-extrabold text-gold-500 mb-2" data-counter="19">0</div>
+                    <div class="text-xs sm:text-sm font-medium text-gray-300 uppercase tracking-wider">Distrik Terjangkau Modals</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA & PENGUMUMAN (TAB FILTER) -->
+    <section id="berita" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-gold-600 font-bold text-sm tracking-wider uppercase">Pusat Informasi</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900 mt-1">Berita & Pengumuman Terbaru</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mt-4 md:mt-0" id="news-filter">
+                    <button onclick="filterNews('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-bold bg-navy-900 text-white">Semua</button>
+                    <button onclick="filterNews('berita')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200">Berita</button>
+                    <button onclick="filterNews('pengumuman')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold bg-gray-100 text-gray-600 hover:bg-gray-200">Pengumuman</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" id="news-grid">
+                
+                <!-- News 1 -->
+                <article class="news-item berita bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80" alt="Inspeksi Kendaraan" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                            <span class="bg-navy-900 text-gold-500 px-2.5 py-1 rounded font-semibold">Berita</span>
+                            <span><i class="fa-regular fa-calendar"></i> 24 Okt 2026</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-navy-900 mb-2 hover:text-gold-600 transition cursor-pointer">
+                            Dishub Kab. Jayapura Gelar Ramp Check Armada Angkutan Umum Jelang Libur Hari Raya
+                        </h3>
+                        <p class="text-xs text-gray-600 line-clamp-3 leading-relaxed">
+                            Pemeriksaan kelaikan jalan dilakukan secara mendadak di Terminal Sentani guna memastikan keselamatan penumpang.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- News 2 -->
+                <article class="news-item pengumuman bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80" alt="Penyeberangan Danau" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                            <span class="bg-gold-500 text-navy-950 px-2.5 py-1 rounded font-semibold">Pengumuman</span>
+                            <span><i class="fa-regular fa-calendar"></i> 18 Okt 2026</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-navy-900 mb-2 hover:text-gold-600 transition cursor-pointer">
+                            Imbauan Keselamatan Pelayaran Tradisional di Kawasan Perairan Danau Sentani
+                        </h3>
+                        <p class="text-xs text-gray-600 line-clamp-3 leading-relaxed">
+                            Seluruh motoris speedboat diimbau melengkapi alat keselamatan diri seperti pelampung dan memperhatikan prakiraan cuaca BMKG.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- News 3 -->
+                <article class="news-item berita bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df5057d0256?auto=format&fit=crop&w=800&q=80" alt="Lampu PJU" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                            <span class="bg-navy-900 text-gold-500 px-2.5 py-1 rounded font-semibold">Berita</span>
+                            <span><i class="fa-regular fa-calendar"></i> 10 Okt 2026</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-navy-900 mb-2 hover:text-gold-600 transition cursor-pointer">
+                            Pemeliharaan Penerangan Jalan Umum (PJU) Jalur Gunung Merah hingga Doyo Baru
+                        </h3>
+                        <p class="text-xs text-gray-600 line-clamp-3 leading-relaxed">
+                            Tim teknis Dishub melakukan perbaikan ratusan titik lampu PJU untuk meningkatkan kenyamanan pengendara malam hari.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI KEGIATAN -->
+    <section id="galeri" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-600 font-bold text-sm tracking-wider uppercase">Dokumentasi</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 mt-1">Galeri Potret Kegiatan</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-48 rounded-xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80" alt="Galeri 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                </div>
+                <div class="h-48 rounded-xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80" alt="Galeri 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                </div>
+                <div class="h-48 rounded-xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80" alt="Galeri 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                </div>
+                <div class="h-48 rounded-xl overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Galeri 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & PETA LOKASI KANTOR -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Information -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-gold-600 font-bold text-sm tracking-wider uppercase">Hubungi Kami</span>
+                        <h2 class="text-3xl font-extrabold text-navy-900 mt-1">Kantor Dinas Perhubungan</h2>
+                        <p class="text-sm text-gray-600 mt-2">Silakan kunjungi kantor operasional kami atau kirimkan pertanyaan melalui kontak berikut.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-navy-900 text-gold-500 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-navy-900">Alamat Kantor</h4>
+                                <p class="text-xs text-gray-600 leading-relaxed">Kompleks Perkantoran Pemerintah Kabupaten Jayapura, Gunung Merah, Sentani, Papua.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-navy-900 text-gold-500 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-navy-900">Jam Operasional</h4>
+                                <p class="text-xs text-gray-600">Senin - Jumat: 08.00 - 15.00 WIT</p>
+                                <p class="text-xs text-gray-500">Sabtu, Minggu & Hari Libur Nasional: Tutup</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-navy-900 text-gold-500 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-navy-900">Telepon / WhatsApp Call Center</h4>
+                                <p class="text-xs text-gray-600">+62 812-3456-7890 (Pengaduan & Informasi)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-navy-900 text-gold-500 rounded-lg flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-navy-900">Email Resmi</h4>
+                                <p class="text-xs text-gray-600">dishub@jayapurakab.go.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed Simulation -->
+                <div class="lg:col-span-7 bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 shadow-md h-96 relative flex items-center justify-center">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31889.314988081195!2d140.4905!3d-2.5684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x68a3ab7caef0a4a9%3A0x6a2c27be0ed3796d!2sSentani%2C%20Jayapura%20Regency%2C%20Papua!5e0!3m2!1sen!2sid!4v1700000000000" 
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-950 text-white border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Column 1 -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-gold-500 rounded-lg flex items-center justify-center text-navy-950">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                        <span class="font-bold text-lg text-white">DISHUB KAB. JAYAPURA</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Pemerintah Kabupaten Jayapura, Provinsi Papua. Berkomitmen menyediakan konektivitas dan keselamatan perhubungan darat, laut, dan udara.
+                    </p>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-500 mb-4 tracking-wider uppercase">Tautan Cepat</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#beranda" class="hover:text-gold-500 transition">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-gold-500 transition">Profil Visi Misi</a></li>
+                        <li><a href="#layanan" class="hover:text-gold-500 transition">Uji KIR Online</a></li>
+                        <li><a href="#berita" class="hover:text-gold-500 transition">Berita Transportasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-500 mb-4 tracking-wider uppercase">Instansi Terkait</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="https://jayapurakab.go.id" target="_blank" rel="noopener" class="hover:text-gold-500 transition">Pemkab Jayapura <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></li>
+                        <li><a href="https://dephub.go.id" target="_blank" rel="noopener" class="hover:text-gold-500 transition">Kementerian Perhubungan RI <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition">BPTD Wilayah XXV Papua</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-sm font-bold text-gold-500 mb-4 tracking-wider uppercase">Media Sosial</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-900 border border-navy-800 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-900 border border-navy-800 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-navy-900 border border-navy-800 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-navy-900 mt-12 pt-6 text-center text-xs text-gray-500">
+                <p>&copy; 2026 Dinas Perhubungan Kabupaten Jayapura. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP DIALOG -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl animate-fade-in">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div id="modal-content">
+                <!-- Content injected via JS -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // News Filter Tab Logic
+        function filterNews(category) {
+            const buttons = document.querySelectorAll('#news-filter button');
+            const items = document.querySelectorAll('.news-item');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+
+            event.target.classList.remove('bg-gray-100', 'text-gray-600');
+            event.target.classList.add('bg-navy-900', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Animated Counters
+        const counters = document.querySelectorAll('[data-counter]');
+        let animated = false;
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight;
+            const targetPos = document.querySelector('[data-counter]').offsetTop;
+
+            if (scrollPos > targetPos && !animated) {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-counter');
+                    let count = 0;
+                    const speed = target / 50;
+
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count).toLocaleString();
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                });
+                animated = true;
+            }
+        });
+
+        // Modal Handler
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(type) {
+            let html = '';
+
+            if (type === 'kir') {
+                html = `
+                    <h3 class="text-xl font-bold text-navy-900 mb-4"><i class="fa-solid fa-truck-ramp-box text-gold-500"></i> Form Pendaftaran Uji KIR Online</h3>
+                    <form onsubmit="event.preventDefault(); alert('Pendaftaran Berhasil Dikirim! Petugas kami akan memproses berkas Anda.'); closeModal();" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Pemilik / Perusahaan</label>
+                            <input type="text" required class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor Kendaraan (Plat Nomor)</label>
+                            <input type="text" placeholder="DS 1234 XX" required class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Jenis Kendaraan</label>
+                            <select class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                                <option>Truk / Angkutan Barang</option>
+                                <option>Pick Up / Box</option>
+                                <option>Bus / Angkutan Umum</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-navy-900 text-gold-500 font-bold py-3 rounded-lg text-xs hover:bg-navy-800 transition">Kirim Pendaftaran</button>
+                    </form>
+                `;
+            } else if (type === 'pengaduan') {
+                html = `
+                    <h3 class="text-xl font-bold text-navy-900 mb-4"><i class="fa-solid fa-bullhorn text-gold-500"></i> Layanan Pengaduan Masyarakat</h3>
+                    <form onsubmit="event.preventDefault(); alert('Laporan pengaduan Anda telah terkirim ke Tim Dishub Jayapura.'); closeModal();" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Lengkap</label>
+                            <input type="text" required class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor WhatsApp / HP</label>
+                            <input type="tel" required class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Isi Pengaduan / Keluhan</label>
+                            <textarea rows="4" required placeholder="Jelaskan titik lokasi dan keluhan..." class="w-full border border-gray-300 rounded-lg p-2.5 text-xs focus:ring-2 focus:ring-gold-500 outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gold-500 text-navy-950 font-bold py-3 rounded-lg text-xs hover:bg-gold-400 transition">Kirim Laporan</button>
+                    </form>
+                `;
+            } else {
+                html = `
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Persyaratan Service</h3>
+                    <p class="text-xs text-gray-600 mb-4">Informasi lengkap persyaratan administrasi perizinan trayek & perhubungan udara.</p>
+                    <ul class="text-xs text-gray-700 space-y-2 list-disc list-inside mb-4">
+                        <li>Fotokopi KTP Pemohon</li>
+                        <li>STNK dan Buku Uji Berkala Aktif</li>
+                        <li>Surat Rekomendasi Kampung / Distrik Setempat</li>
+                    </ul>
+                    <button onclick="closeModal()" class="w-full bg-navy-900 text-white font-bold py-2.5 rounded-lg text-xs">Tutup</button>
+                `;
+            }
+
+            modalContent.innerHTML = html;
+            modalBackdrop.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modalBackdrop.classList.add('hidden');
+        }
+
+        modalBackdrop.addEventListener('click', (e) => {
+            if (e.target === modalBackdrop) closeModal();
+        });
+    </script>
+</body>
+</html>
